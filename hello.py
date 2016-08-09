@@ -21,11 +21,11 @@ def data():
     db = client.TestDB
     coll = db.MyCollection
     result = coll.aggregate( [ {"$group": {"_id":"$city","naslnnia":{"$max":"$pop"}}},{"$sort":{"naslnnia":-1}},{"$limit":20}] )
-    mistagrafik = [ {'label': x['_id'] ,'value':x['naslnnia']} for x in result ]
+    top20mista = [ {'label': x['_id'] ,'value':x['naslnnia']} for x in result ]
     return  json.dumps([ 
     {
       "key": "Cumulative Return",
-      "values": mistagrafik
+      "values": top20mista
     }
   ])
 
