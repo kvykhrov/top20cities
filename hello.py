@@ -2,12 +2,10 @@ import json
 import flask
 from pymongo import MongoClient
 
-
-
 app = flask.Flask(__name__) 
 
 @app.route("/") 
-def hello():
+def index():
     client = MongoClient()
     db = client.TestDB
     coll = db.MyCollection
